@@ -47,7 +47,7 @@ BUILD_FLAGS=-DEXTENSION_STATIC_BUILD=1 $(EXTENSION_FLAGS) ${EXTRA_EXTENSIONS_FLA
 CLIENT_FLAGS:=
 
 #### Main build
-# For regular CLI build, we link the quack extension directly into the DuckDB executable
+# For regular CLI build, we link the dockroll extension directly into the DuckDB executable
 CLIENT_FLAGS=-DDUCKDB_EXTENSION_${EXTENSION_NAME}_SHOULD_LINK=1
 
 debug:
@@ -81,8 +81,8 @@ test_debug: debug
 	./build/debug/$(TEST_PATH) "$(PROJ_DIR)test/*"
 
 #### Client tests
-DEBUG_EXT_PATH='$(PROJ_DIR)build/debug/extension/quack/quack.duckdb_extension'
-RELEASE_EXT_PATH='$(PROJ_DIR)build/release/extension/quack/quack.duckdb_extension'
+DEBUG_EXT_PATH='$(PROJ_DIR)build/debug/extension/duckroll/duckroll.duckdb_extension'
+RELEASE_EXT_PATH='$(PROJ_DIR)build/release/extension/duckroll/duckroll.duckdb_extension'
 test_js: test_debug_js
 test_debug_js: debug_js
 	cd duckdb/tools/nodejs && ${EXTENSION_NAME}_EXTENSION_BINARY_PATH=$(DEBUG_EXT_PATH) npm run test-path -- "../../../test/nodejs/**/*.js"
