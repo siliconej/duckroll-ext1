@@ -20,4 +20,4 @@ def test_duckroll(duckdb_conn):
 def test_duckroll_openssl_version_test(duckdb_conn):
     duckdb_conn.execute("SELECT duckroll_openssl_version('Michael');");
     res = duckdb_conn.fetchall()
-    assert(res[0][0][0:51] == "Duckroll Michael, my linked OpenSSL version is OpenSSL");
+    assert(res[0][0][0:54] == "Duckroll Michael, my linked OpenSSL version is OpenSSL");
