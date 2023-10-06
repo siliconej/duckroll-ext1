@@ -15,9 +15,9 @@ require duckroll
 query I
 SELECT duckroll('Sam');
 ----
-Quack Sam 🐥
+Duckroll Sam 🐥
 
 query I
 SELECT duckroll_openssl_version('Michael');
 ----
-<REGEX>:Quack Michael, my linked OpenSSL version is OpenSSL.*
+<REGEX>:Duckroll Michael, my linked OpenSSL version is OpenSSL.*
