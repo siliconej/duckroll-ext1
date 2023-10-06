@@ -1,0 +1,23 @@
+# name: test/sql/duckroll.test
+# description: test duckroll extension
+# group: [duckroll]
+
+# Before we load the extension, this will fail
+statement error
+SELECT duckroll('Sam');
+----
+Catalog Error: Scalar Function with name duckroll does not exist!
+
+# Require statement will ensure this test is run with this extension loaded
+require duckroll
+
+# Confirm the extension works
+query I
+SELECT duckroll('Sam');
+----
+Quack Sam 🐥
+
+query I
+SELECT duckroll_openssl_version('Michael');
+----
+<REGEX>:Quack Michael, my linked OpenSSL version is OpenSSL.*
